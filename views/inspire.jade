@@ -1,0 +1,52 @@
+extends layout
+block page
+  - var menu = 'inspiration'
+block content
+
+  if (user)
+    script. 
+        var searchReddit = function(){
+            console.log("clicked")
+            var searchKey = $(".search").val()
+            console.log(searchKey)
+            //searches what the user inputted into reddit and returns a list of threads
+            $.getJSON( "https://www.reddit.com/search.json?q="+searchKey,function getPosts(json){
+                $(".reddit-api").empty();
+                $.each(
+                    json.data.children,
+                    function (number, post) {
+                        console.log(number)
+                        $(".reddit-api").append("<a href=" + post.data.url +" class=" +number+ "></a><br>");
+                        $(".reddit-api ."+number).append(number + 1 + ": " + post.data.title + " - " + "Score: " + post.data.score);
+                        $(".reddit-api ."+number).append("<br>");
+                        }
+                      )
+                return false
+            }
+        )};
+        var recommend = function(){
+            $.ajax({url: "jquery-ajax.json", dataType: 'json', success: function(result){
+                $(".ajax").append(result.message);
+                //empties div reloading
+                $(".recommended").empty();
+                for (var i = 0; i < result.employees.length; i++){
+                    $(".recommended").append("<a href=" + result.employees[i]['key'] +" class="+i+ "></a><br>");
+                    $(".recommended ."+i).append(i + 1 + ": " + result.employees[i]['value'])
+                }
+            }}
+        )};
+    h2 Get Inspired
+    div.col-md-8
+      .post
+        form
+           input.form-control(class = "search", type='text', name="search", placeholder='search')
+           input.form-control(type='submit', value="Submit", onClick ='searchReddit()')
+        .reddit-api
+        br
+        .ajax
+      br
+      .recommendations
+        button.btn.btn-primary(onclick='recommend()') Our Recommendations
+      br
+      .recommended
+

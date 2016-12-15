@@ -1,0 +1,23 @@
+.menu
+  ul.nav.nav-pills
+    if (user)
+      p You are currently logged in as #{user.username} 
+      a(href="/update") Edit Account                   
+      a(href="/delete") Delete Account
+      br
+      br
+      li(class=(menu === 'index')?'active':'')
+        a(href='/') Home
+    if (user)
+      li(class=(menu === 'post')?'active':'')
+        a(href="/create") Create
+      li(class=(menu === 'inspiration')?'active':'')
+        a(href="/inspire") Inspiration
+      li
+        a(href="/logout") Log out
+    else
+      li(class=(menu === 'login')?'active':'')
+        a(href='/login') Log in
+      li(class=(menu === 'register')?'active':'')
+        a(href='/register') Register
+     

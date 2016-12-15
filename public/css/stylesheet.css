@@ -1,0 +1,17 @@
+button{
+    color: darkred
+}
+form{
+    height: 70px;
+    width:500px;
+    margin:auto;
+    text-align:center;
+}
+.search {
+    width: 80%;
+    height: 5px;
+    padding:9px 10px 9px 15px;
+    margin:3px;
+    border-radius: 30px;
+    
+}

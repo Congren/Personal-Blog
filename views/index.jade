@@ -1,0 +1,34 @@
+extends layout
+
+block page 
+  - var menu = 'index'
+block content
+  if (!user)
+    p Please log in to use your Blog!
+        
+  if (user) 
+    script.
+        var reddit = function(){
+           $.getJSON( "https://www.reddit.com/r/askreddit.json?",function getPosts(json){
+                  $.each(
+                    json.data.children,
+                    function (number, post) {
+                      console.log(post)
+                      $(".reddit-api").append( '<br>' + post.data.title );
+                      $(".reddit-api").append( '<br>' + post.data.url );
+                      $(".reddit-api").append( '<br>' + post.data.permalink );
+                      $(".reddit-api").append( '<p></p>' );
+                    }
+                  )
+                }
+              )
+        }
+    .reddit-api    
+    if (articles.length === 0)
+      | There's no content yet. 
+    else 
+      each article, index in articles
+        div
+          h2
+            a(href="/articles/#{article.tag}")= article.title
+    //button(onclick='reddit()') Click here for askreddit topics!

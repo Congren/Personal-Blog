@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  p
+    h1= article.title
+    p= article.text
+  a(href="/articles/remove/#{article.tag}")
+        button.btn.btn-primary(type="button") Delete

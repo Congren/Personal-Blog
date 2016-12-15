@@ -1,0 +1,21 @@
+{
+  "employees": [
+    {
+      "key": "https://www.reddit.com/r/funny/comments/4e4mwf/bad_product/",
+      "value": "Bad Product"
+    },{
+      "key": "https://www.reddit.com/r/funny/comments/4cetah/you_seeing_this_shit/",
+      "value": "Cute Kitty"
+    },{
+      "key": "https://www.reddit.com/r/funny/comments/4uc5od/despite_a_reputation_for_stupidity_the_shoebill/",
+      "value": "Derp"
+    },{
+      "key": "https://www.reddit.com/r/funny/comments/4zgfy9/gotta_go_fast/",
+      "value": "Gotta go fast!"    
+    },{
+      "key": "https://www.reddit.com/r/funny/comments/owx3v/so_my_little_cousin_posted_on_fb_that_he_was/",
+      "value": "Cat Facts"  
+    }
+  ],
+  "message": "Here are some of our personal favorites!"
+}

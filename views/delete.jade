@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container
+    h1 Delete!
+    p.lead Are you sure you want to delete your account?
+    br
+    form(role='form', action="/delete",method="post", style='max-width: 400px;')
+      button.btn.btn-default(type='submit') Submit
+      &nbsp;
+      a(href='/')
+        button.btn.btn-primary(type="button") Cancel
